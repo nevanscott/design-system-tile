@@ -46,24 +46,29 @@
   #tools {
     --font-size: 12px;
     --padding: 12px;
-    background: tomato;
-    border-left: 2px solid rgba(0, 0, 0, 0.75);
-    color: white;
+    background: #EEE;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    color: black;
     font-family: system-ui, system, sans-serif;
     font-size: var(--font-size);
     font-weight: 500;
     padding: 0 var(--padding);
   }
-  #tools h2 {
-    background: rgba(0, 0, 0, 0.3);
-    border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+  #tools details {
+    margin: var(--padding) 0;
+  }
+  #tools details:first-child {
+    margin-top: 0;
+  }
+  #tools summary {
+    background: rgba(0, 0, 0, 0.4);
+    border-top: solid 1px rgba(255, 255, 255, 0.25);
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+    color: white;
     font-size: var(--font-size);
     font-weight: 600;
-    margin: var(--padding) calc(-1 * var(--padding));
+    margin: 0 calc(-1 * var(--padding));
     padding: 4px var(--padding);
-  }
-  #tools h2:first-child {
-    margin-top: 0;
   }
   #tools label {
     display: block;
@@ -126,10 +131,12 @@
 
   for (var i = 0; i < settings.length; i++) {
     var group = settings[i];
+    var $group = document.createElement('details');
     var $label = document.createTextNode(group.label);
-    var $header = document.createElement('h2');
+    var $header = document.createElement('summary');
+    $group.setAttribute('open', true);
     $header.appendChild($label);
-    $tools.appendChild($header);
+    $group.appendChild($header);
 
     for (var j = 0; j < group.controls.length; j++) {
       var control = group.controls[j];
@@ -139,8 +146,9 @@
       var $input = createControlInput(control);
       $label.appendChild($labelText);
       $label.setAttribute('for', key);
-      $tools.appendChild($label);
-      $tools.appendChild($input);
+      $group.appendChild($label);
+      $group.appendChild($input);
+      $tools.appendChild($group);
     }
   }
 
