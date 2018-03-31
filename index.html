@@ -1,208 +1,23 @@
-<title>Design System Tile</title>
+---
+layout: default
+---
 
-<style>
-  :root {
-    --padding: 50px;
-    --font-size: 18px;
-    --font-size-interval: var(--interval);
-    --font-size-100: calc(var(--font-size-200) / var(--font-size-interval));
-    --font-size-200: calc(var(--font-size-300) / var(--font-size-interval));
-    --font-size-300: calc(var(--font-size-400) / var(--font-size-interval));
-    --font-size-400: var(--font-size);
-    --font-size-500: calc(var(--font-size-interval) * var(--font-size-400));
-    --font-size-600: calc(var(--font-size-interval) * var(--font-size-500));
-    --font-size-700: calc(var(--font-size-interval) * var(--font-size-600));
-    --font-size-800: calc(var(--font-size-interval) * var(--font-size-700));
-    --font-size-900: calc(var(--font-size-interval) * var(--font-size-800));
-    --font-size-base: var(--font-size);
-    --font-size-text: var(--font-size);
-    --font-size-title: var(--font-size-700);
-    --font-size-heading: var(--font-size-600);
-    --font-size-decorative: var(--font-size-500);
-    --font-size-subhead: var(--font-size-400);
-    --font-size-caption: var(--font-size-300);
-    --font-size-micro: var(--font-size-200);
-    --space: 16px;
-    --space-ratio: 1.5;
-    --space-interval: calc(2 * var(--space-ratio));
-    --space-100: calc(var(--space-200) / var(--space-interval));
-    --space-200: calc(var(--space-300) / var(--space-interval));
-    --space-300: calc(var(--space-400) / var(--space-interval));
-    --space-400: var(--space);
-    --space-500: calc(var(--space-interval) * var(--space-400));
-    --space-600: calc(var(--space-interval) * var(--space-500));
-    --space-700: calc(var(--space-interval) * var(--space-600));
-    --space-800: calc(var(--space-interval) * var(--space-700));
-    --space-900: calc(var(--space-interval) * var(--space-800));
-    --interval: 1.5;
-  }
-  body {
-    display: flex;
-    font-size: var(--font-size-base);
-    margin: 0;
-    padding: 0;
-  }
-  h1 {
-    font-size: var(--font-size-title);
-    margin: var(--space-500) 0 var(--space-400);
-  }
-  h2 {
-    font-size: var(--font-size-heading);
-    margin: var(--space-400) 0 var(--space-300);
-  }
-  blockquote {
-    font-size: var(--font-size-decorative);
-    font-style: italic;
-  }
-  form {
-    border: solid 2px black;
-    padding: var(--space-500);
-  }
-  #canvas {
-    padding: var(--space-500) var(--space-600);
-  }
-  #tools {
-    --font-size: 12px;
-    --padding: 12px;
-    background: #EEE;
-    border-left: 1px solid rgba(0, 0, 0, 0.5);
-    color: black;
-    font-family: system-ui, system, sans-serif;
-    font-size: var(--font-size);
-    font-weight: 500;
-    padding: 0 var(--padding);
-  }
-  #tools details {
-    margin: var(--padding) 0;
-  }
-  #tools details:first-child {
-    margin-top: 0;
-  }
-  #tools summary {
-    background: rgba(0, 0, 0, 0.4);
-    border-top: solid 1px rgba(255, 255, 255, 0.25);
-    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
-    color: white;
-    font-size: var(--font-size);
-    font-weight: 600;
-    margin: 0 calc(-1 * var(--padding));
-    padding: 4px var(--padding);
-  }
-  #tools label {
-    display: block;
-    margin-top: var(--font-size);
-  }
-</style>
-
-<main id="canvas">
-  <h1>The Human Touch</h1>
-  <p>Then comes the First World War, and one of the parties to the contract, the pianist Paul Wittgenstein, gets his right arm blown off. Now he can deliver only five fingers instead of the specified ten. So for him the contract has to be rewritten. And since no one can think of a way to adapt either the technique or the keyboard so that ten-finger music can be played with half the number of fingers, it's the musical input that has to change, and Prokofiev, Ravel, Strauss, and Hindemith agree to supply concertos written for the left hand only.</p>
-  <figure>
-    <blockquote>
-      <p>The tool is shaped to fit the hand that holds it; the hand is calloused by the tool it holds. Man makes the clothes; clothes make the man. Syntax determines our thought and relations with the world; our thought and relations with the world determine the syntax.</p>
-    </blockquote>
-    <figcaption>
-      Michael Frayn, <cite>The Human Touch</cite>
-    </figcaption>
-  </figure>
-  <form>
-    <h2>Like this?</h2>
-    <p>Get our weekly newsletter for more insights.</p>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input id="email" type="email" required />
-      <button>Subscribe</button>
-    </div>
-  </form>
-</main>
-
-<aside id="tools">
-</aside>
-
-<script>
-  var settings = [
-    {
-      label: "Typography",
-      controls: [
-        {
-          label: "Font Size Interval",
-          property: "--interval",
-          min: "1.0",
-          max: "2.0",
-          step: "0.05"
-        }
-      ]
-    },
-    {
-      label: "Spacing",
-      controls: [
-        {
-          label: "Base Space",
-          property: "--space",
-          min: "0",
-          max: "32",
-          step: "4",
-          unit: "px"
-        },
-        {
-          label: "Space Ratio",
-          property: "--space-ratio",
-          value: "1.5",
-          min: "0.5",
-          max: "2.0",
-          step: "0.1"
-        }
-      ]
-    }
-  ];
-
-  var $tools = document.querySelector('#tools');
-
-  for (var i = 0; i < settings.length; i++) {
-    var group = settings[i];
-    var $group = document.createElement('details');
-    var $label = document.createTextNode(group.label);
-    var $header = document.createElement('summary');
-    $group.setAttribute('open', true);
-    $header.appendChild($label);
-    $group.appendChild($header);
-
-    for (var j = 0; j < group.controls.length; j++) {
-      var control = group.controls[j];
-      var key = control.label.toLowerCase().replace(/\s+/g,"-");
-      var $labelText = document.createTextNode(control.label);
-      var $label = document.createElement('label');
-      var $input = createControlInput(control);
-      $label.appendChild($labelText);
-      $label.setAttribute('for', key);
-      $group.appendChild($label);
-      $group.appendChild($input);
-      $tools.appendChild($group);
-    }
-  }
-
-  function createControlInput(control) {
-    var key = control.label.toLowerCase().replace(/\s+/g,"-");
-    var property = control.property;
-    var unit = control.unit || '';
-    var $input = document.createElement('input');
-    $input.setAttribute('id', key);
-    $input.setAttribute('type', 'range');
-    if (control.min) {
-      $input.setAttribute('min', control.min);
-    }
-    if (control.max) {
-      $input.setAttribute('max', control.max);
-    }
-    if (control.step) {
-      $input.setAttribute('step', control.step);
-    }
-    $input.addEventListener('input', function() {
-      document.documentElement.style.setProperty(property,`${this.value}${unit}`);
-    })
-    if (control.value) {
-      $input.setAttribute('value', control.value);
-    }
-    return $input;
-  }
-</script>
+<h1>The Human Touch</h1>
+<p>Then comes the First World War, and one of the parties to the contract, the pianist Paul Wittgenstein, gets his right arm blown off. Now he can deliver only five fingers instead of the specified ten. So for him the contract has to be rewritten. And since no one can think of a way to adapt either the technique or the keyboard so that ten-finger music can be played with half the number of fingers, it's the musical input that has to change, and Prokofiev, Ravel, Strauss, and Hindemith agree to supply concertos written for the left hand only.</p>
+<figure>
+  <blockquote>
+    <p>The tool is shaped to fit the hand that holds it; the hand is calloused by the tool it holds. Man makes the clothes; clothes make the man. Syntax determines our thought and relations with the world; our thought and relations with the world determine the syntax.</p>
+  </blockquote>
+  <figcaption>
+    Michael Frayn, <cite>The Human Touch</cite>
+  </figcaption>
+</figure>
+<form>
+  <h2>Like this?</h2>
+  <p>Get our weekly newsletter for more insights.</p>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" type="email" required />
+    <button>Subscribe</button>
+  </div>
+</form>
