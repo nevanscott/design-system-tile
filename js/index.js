@@ -9,6 +9,14 @@ var settings = [
         min: "1.0",
         max: "2.0",
         step: "0.05"
+      },
+      {
+        label: "Line Height",
+        property: "--line-height",
+        value: "1.0",
+        min: "1.0",
+        max: "2.0",
+        step: "0.05"
       }
     ]
   },
