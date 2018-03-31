@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  font-size: var(--font-size-base);
+  margin: 0;
+  padding: 0;
+}
+#canvas {
+  padding: var(--space-500) var(--space-600);
+}
+h1 {
+  font-size: var(--font-size-title);
+  margin: var(--space-500) 0 var(--space-400);
+}
+h2 {
+  font-size: var(--font-size-heading);
+  margin: var(--space-400) 0 var(--space-300);
+}
+blockquote {
+  font-size: var(--font-size-decorative);
+  font-style: italic;
+}
+form {
+  border: solid 2px black;
+  padding: var(--space-500);
+}

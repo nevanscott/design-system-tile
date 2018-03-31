@@ -1,0 +1,34 @@
+#tools {
+  --font-size: 12px;
+  --padding: 12px;
+  background: #EEE;
+  border-left: 1px solid rgba(0, 0, 0, 0.5);
+  color: black;
+  font-family: system-ui, system, sans-serif;
+  font-size: var(--font-size);
+  font-weight: 500;
+  padding: 0 var(--padding);
+  min-width: 15em;
+
+  details {
+    margin: 0;
+  }
+  summary {
+    background: rgba(0, 0, 0, 0.4);
+    border-top: solid 1px rgba(255, 255, 255, 0.25);
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+    color: white;
+    cursor: default;
+    font-size: var(--font-size);
+    font-weight: 600;
+    margin: 0 calc(-1 * var(--padding));
+    padding: 4px var(--padding);
+  }
+  label {
+    display: block;
+    margin-top: var(--padding);
+  }
+  input {
+    margin-bottom: var(--padding);
+  }
+}
