@@ -22,6 +22,18 @@
     --font-size-subhead: var(--font-size-400);
     --font-size-caption: var(--font-size-300);
     --font-size-micro: var(--font-size-200);
+    --space: 16px;
+    --space-ratio: 1.5;
+    --space-interval: calc(2 * var(--space-ratio));
+    --space-100: calc(var(--space-200) / var(--space-interval));
+    --space-200: calc(var(--space-300) / var(--space-interval));
+    --space-300: calc(var(--space-400) / var(--space-interval));
+    --space-400: var(--space);
+    --space-500: calc(var(--space-interval) * var(--space-400));
+    --space-600: calc(var(--space-interval) * var(--space-500));
+    --space-700: calc(var(--space-interval) * var(--space-600));
+    --space-800: calc(var(--space-interval) * var(--space-700));
+    --space-900: calc(var(--space-interval) * var(--space-800));
     --interval: 1.5;
   }
   body {
@@ -32,16 +44,22 @@
   }
   h1 {
     font-size: var(--font-size-title);
+    margin: var(--space-500) 0 var(--space-400);
   }
   h2 {
     font-size: var(--font-size-heading);
+    margin: var(--space-400) 0 var(--space-300);
   }
   blockquote {
     font-size: var(--font-size-decorative);
     font-style: italic;
   }
+  form {
+    border: solid 2px black;
+    padding: var(--space-500);
+  }
   #canvas {
-    padding: var(--padding);
+    padding: var(--space-500);
   }
   #tools {
     --font-size: 12px;
@@ -119,9 +137,19 @@
       label: "Spacing",
       controls: [
         {
-          label: "Padding",
-          property: "--padding",
+          label: "Base Space",
+          property: "--space",
+          min: "0",
+          max: "32",
+          step: "1",
           unit: "px"
+        },
+        {
+          label: "Space Ratio",
+          property: "--space-ratio",
+          min: "0",
+          max: "2",
+          step: "0.01"
         }
       ]
     }
