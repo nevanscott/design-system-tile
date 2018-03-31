@@ -3,22 +3,67 @@
 <style>
   :root {
     --padding: 50px;
+    --font-size: 18px;
+    --font-size-interval: var(--interval);
+    --font-size-scale-100: calc(var(--font-size-scale-200) / var(--font-size-interval));
+    --font-size-scale-200: calc(var(--font-size-scale-300) / var(--font-size-interval));
+    --font-size-scale-300: calc(var(--font-size-scale-400) / var(--font-size-interval));
+    --font-size-scale-400: var(--font-size);
+    --font-size-scale-500: calc(var(--font-size-interval) * var(--font-size-scale-400));
+    --font-size-scale-600: calc(var(--font-size-interval) * var(--font-size-scale-500));
+    --font-size-scale-700: calc(var(--font-size-interval) * var(--font-size-scale-600));
+    --font-size-scale-800: calc(var(--font-size-interval) * var(--font-size-scale-700));
+    --font-size-scale-900: calc(var(--font-size-interval) * var(--font-size-scale-800));
+    --font-size-base: var(--font-size);
+    --font-size-text: var(--font-size);
+    --font-size-title: var(--font-size-scale-700);
+    --font-size-heading: var(--font-size-scale-600);
+    --font-size-decorative: var(--font-size-scale-500);
+    --font-size-subhead: var(--font-size-scale-400);
+    --font-size-caption: var(--font-size-scale-300);
+    --font-size-micro: var(--font-size-scale-200);
+    --interval: 1.5;
   }
   body {
     display: flex;
+    font-size: var(--font-size-base);
     margin: 0;
     padding: 0;
+  }
+  h1 {
+    font-size: var(--font-size-title);
+  }
+  h2 {
+    font-size: var(--font-size-heading);
+  }
+  blockquote {
+    font-size: var(--font-size-decorative);
+    font-style: italic;
   }
   #canvas {
     padding: var(--padding);
   }
   #tools {
+    --font-size: 12px;
+    --padding: 18px;
     background: tomato;
-    border-left: 2px solid rgba(0,0,0,.75);
+    border-left: 2px solid rgba(0, 0, 0, 0.75);
     color: white;
     font-family: system-ui, system, sans-serif;
+    font-size: var(--font-size);
     font-weight: 500;
-    padding: 15px;
+    padding: 0 var(--padding);
+  }
+  #tools h2 {
+    background: rgba(0, 0, 0, 0.3);
+    font-size: var(--font-size);
+    font-weight: 600;
+    margin: 0 calc(-1 * var(--padding)) var(--padding);
+    padding: 4px var(--padding);
+  }
+  #tools label {
+    display: block;
+    margin-top: var(--font-size);
   }
 </style>
 
@@ -45,13 +90,21 @@
 </main>
 
 <aside id="tools">
+  <h2>Settings</h2>
   <label for="padding">Padding</label>
   <input id="padding" type="range">
+  <label for="interval">Font Size Interval</label>
+  <input id="interval" type="range" min="1.0" max="2.0" step="0.01">
 </aside>
 
 <script>
   var paddingInput = document.querySelector('#padding');
   paddingInput.addEventListener('input', function() {
     document.documentElement.style.setProperty("--padding", `${this.value}px`);
+  })
+
+  var intervalInput = document.querySelector('#interval');
+  intervalInput.addEventListener('input', function() {
+    document.documentElement.style.setProperty("--interval", `${this.value}`);
   })
 </script>
