@@ -5,6 +5,7 @@ var settings = [
       {
         label: "Font Size Interval",
         property: "--interval",
+        value: "1.0",
         min: "1.0",
         max: "2.0",
         step: "0.05"
@@ -17,6 +18,7 @@ var settings = [
       {
         label: "Base Space",
         property: "--space",
+        value: "0",
         min: "0",
         max: "32",
         step: "4",
@@ -25,7 +27,7 @@ var settings = [
       {
         label: "Space Ratio",
         property: "--space-ratio",
-        value: "1.5",
+        value: "0.5",
         min: "0.5",
         max: "2.0",
         step: "0.1"
@@ -76,7 +78,7 @@ function createControlInput(control) {
     $input.setAttribute('step', control.step);
   }
   $input.addEventListener('input', function() {
-    document.documentElement.style.setProperty(property,`${this.value}${unit}`);
+    document.getElementsByClassName('artboard')[0].contentDocument.documentElement.style.setProperty(property,`${this.value}${unit}`);
   })
   if (control.value) {
     $input.setAttribute('value', control.value);

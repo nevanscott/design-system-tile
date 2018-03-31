@@ -1,7 +1,7 @@
 :root {
   --padding: 50px;
-  --space: 16px;
-  --space-ratio: 1.5;
+  --space: 0px;
+  --space-ratio: 1.0;
   --space-interval: calc(2 * var(--space-ratio));
   --space-100: calc(var(--space-200) / var(--space-interval));
   --space-200: calc(var(--space-300) / var(--space-interval));
