@@ -19,6 +19,12 @@ iframe {
   width: 100%;
   height: 100%;
 }
+a {
+  color: hsl(var(--hue-primary), 85%, 45%);
+  &:hover {
+    color: hsl(var(--hue-primary-shift), 85%, 45%);
+  }
+}
 h1, h2 {
   font-family: var(--font-family-display);
 }
@@ -35,7 +41,7 @@ blockquote {
   font-style: italic;
 }
 form {
-  border: solid 2px black;
+  background: hsl(var(--hue-secondary), 15%, 85%);
   padding: var(--space-500);
 }
 input {
@@ -43,9 +49,12 @@ input {
   padding: var(--space-100) var(--space-200);
 }
 button {
-  background: hsl(var(--button-hue), 85%, 45%);
+  background: hsl(var(--hue-primary), 85%, 45%);
   border: none;
   color: white;
   font-weight: bold;
   padding: var(--space-100) var(--space-200);
+  &:hover {
+    background: hsl(var(--hue-primary-shift), 85%, 45%);
+  }
 }

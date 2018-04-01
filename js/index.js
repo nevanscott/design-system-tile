@@ -76,12 +76,28 @@ var settings = [
     label: "Color",
     controls: [
       {
-        label: "Button Hue",
-        property: "--button-hue",
-        value: "0",
+        label: "Base Hue",
+        property: "--hue",
+        value: "50",
         min: "0",
         max: "360",
-        step: "5"
+        step: "1"
+      },
+      {
+        label: "Hue Spread",
+        property: "--hue-offset",
+        value: "145",
+        min: "0",
+        max: "180",
+        step: "1"
+      },
+      {
+        label: "Hue Shift",
+        property: "--hue-shift",
+        value: "15",
+        min: "-30",
+        max: "30",
+        step: "1"
       }
     ]
   }

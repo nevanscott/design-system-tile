@@ -1,3 +1,11 @@
 :root {
-  --button-hue: 0;
+  --hue: 50;
+  --hue-offset: 145;
+  --hue-shift: 15;
+  --hue-primary: var(--hue);
+  --hue-primary-shift: calc(var(--hue-primary) + var(--hue-shift));
+  --hue-secondary: calc(var(--hue) + var(--hue-offset));
+  --hue-secondary-shift: calc(var(--hue-secondary) + var(--hue-shift));
+  --hue-tertiary: calc(var(--hue) - var(--hue-offset));
+  --hue-tertiary-shift: calc(var(--hue-tertiary) + var(--hue-shift));
 }
