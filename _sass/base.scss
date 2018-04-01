@@ -38,3 +38,14 @@ form {
   border: solid 2px black;
   padding: var(--space-500);
 }
+input {
+  border: 1px solid black;
+  padding: var(--space-100) var(--space-200);
+}
+button {
+  background: black;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: var(--space-100) var(--space-200);
+}

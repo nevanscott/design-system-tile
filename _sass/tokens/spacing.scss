@@ -1,12 +1,12 @@
 :root {
   --padding: 50px;
-  --space: 0px;
-  --space-ratio: 1.0;
+  --space: 1px;
+  --space-ratio: 0.5;
   --space-interval: calc(2 * var(--space-ratio));
-  --space-100: calc(var(--space-200) / var(--space-interval));
-  --space-200: calc(var(--space-300) / var(--space-interval));
-  --space-300: calc(var(--space-400) / var(--space-interval));
-  --space-400: var(--space);
+  --space-100: var(--space);
+  --space-200: calc(var(--space-interval) * var(--space-100));
+  --space-300: calc(var(--space-interval) * var(--space-200));
+  --space-400: calc(var(--space-interval) * var(--space-300));
   --space-500: calc(var(--space-interval) * var(--space-400));
   --space-600: calc(var(--space-interval) * var(--space-500));
   --space-700: calc(var(--space-interval) * var(--space-600));

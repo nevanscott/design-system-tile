@@ -56,10 +56,10 @@ var settings = [
       {
         label: "Base Space",
         property: "--space",
-        value: "0",
-        min: "0",
-        max: "32",
-        step: "4",
+        value: "1",
+        min: "1",
+        max: "8",
+        step: "1",
         unit: "px"
       },
       {
@@ -68,7 +68,7 @@ var settings = [
         value: "0.5",
         min: "0.5",
         max: "2.0",
-        step: "0.1"
+        step: "0.05"
       }
     ]
   }
