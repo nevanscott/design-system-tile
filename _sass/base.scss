@@ -43,7 +43,7 @@ input {
   padding: var(--space-100) var(--space-200);
 }
 button {
-  background: black;
+  background: hsl(var(--button-hue), 85%, 45%);
   border: none;
   color: white;
   font-weight: bold;

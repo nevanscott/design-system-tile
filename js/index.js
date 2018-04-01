@@ -71,6 +71,19 @@ var settings = [
         step: "0.05"
       }
     ]
+  },
+  {
+    label: "Color",
+    controls: [
+      {
+        label: "Button Hue",
+        property: "--button-hue",
+        value: "0",
+        min: "0",
+        max: "360",
+        step: "5"
+      }
+    ]
   }
 ];
 
