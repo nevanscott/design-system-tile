@@ -13,9 +13,9 @@ var settings = [
       {
         label: "Line Height",
         property: "--line-height",
-        value: "1.0",
-        min: "1.0",
-        max: "2.0",
+        value: "1.4",
+        min: "1.3",
+        max: "1.7",
         step: "0.05"
       },
       {
