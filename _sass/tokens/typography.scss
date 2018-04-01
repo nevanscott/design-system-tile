@@ -1,4 +1,10 @@
 :root {
+  --font-family-sans: system-ui, system, sans-serif;
+  --font-family-serif: Georgia, serif;
+  --font-family-base: var(--font-family-text);
+  --font-family-display: var(--font-family-sans);
+  --font-family-caption: var(--font-family-sans);
+  --font-family-text: var(--font-family-serif);
   --font-size: 18px;
   --font-size-interval: var(--interval);
   --font-size-100: calc(var(--font-size-200) / var(--font-size-interval));

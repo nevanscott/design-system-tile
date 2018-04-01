@@ -17,6 +17,36 @@ var settings = [
         min: "1.0",
         max: "2.0",
         step: "0.05"
+      },
+      {
+        label: "Display Font",
+        property: "--font-family-display",
+        value: "var(--font-family-sans)",
+        options: [
+          {
+            label: "Sans-serif",
+            value: "var(--font-family-sans)"
+          },
+          {
+            label: "Serif",
+            value: "var(--font-family-serif)"
+          }
+        ]
+      },
+      {
+        label: "Text Font",
+        property: "--font-family-text",
+        value: "var(--font-family-serif)",
+        options: [
+          {
+            label: "Sans-serif",
+            value: "var(--font-family-sans)"
+          },
+          {
+            label: "Serif",
+            value: "var(--font-family-serif)"
+          }
+        ]
       }
     ]
   },

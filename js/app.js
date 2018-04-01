@@ -31,25 +31,45 @@ App.prototype.createControlInput = function(control) {
   var key = control.label.toLowerCase().replace(/\s+/g,"-");
   var property = control.property;
   var unit = control.unit || '';
-  var $input = document.createElement('input');
-  $input.setAttribute('id', key);
-  $input.setAttribute('type', 'range');
-  if (control.min) {
-    $input.setAttribute('min', control.min);
+  if (control.options) {
+    var $select = document.createElement('select');
+    for (var i = 0; i < control.options.length; i++) {
+      var option = control.options[i];
+      var $option = document.createElement('option');
+      var $optionLabel = document.createTextNode(option.label);
+      $option.appendChild($optionLabel);
+      $option.setAttribute('value', option.value);
+      if (control.value && control.value === option.value) {
+        $option.setAttribute('selected', true);
+      }
+      $select.appendChild($option);
+    }
+    $select.addEventListener('input', function() {
+      console.log(this.value);
+      app.setProperty(property,`${this.value}${unit}`);
+    })
+    return $select;
+  } else {
+    var $input = document.createElement('input');
+    $input.setAttribute('id', key);
+    $input.setAttribute('type', 'range');
+    if (control.min) {
+      $input.setAttribute('min', control.min);
+    }
+    if (control.max) {
+      $input.setAttribute('max', control.max);
+    }
+    if (control.step) {
+      $input.setAttribute('step', control.step);
+    }
+    $input.addEventListener('input', function() {
+      app.setProperty(property,`${this.value}${unit}`);
+    })
+    if (control.value) {
+      $input.setAttribute('value', control.value);
+    }
+    return $input;
   }
-  if (control.max) {
-    $input.setAttribute('max', control.max);
-  }
-  if (control.step) {
-    $input.setAttribute('step', control.step);
-  }
-  $input.addEventListener('input', function() {
-    app.setProperty(property,`${this.value}${unit}`);
-  })
-  if (control.value) {
-    $input.setAttribute('value', control.value);
-  }
-  return $input;
 }
 
 App.prototype.setProperty = function(property, value) {
