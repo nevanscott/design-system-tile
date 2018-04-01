@@ -24,7 +24,7 @@ var settings = [
         value: "var(--font-family-sans)",
         options: [
           {
-            label: "Sans-serif",
+            label: "Sans",
             value: "var(--font-family-sans)"
           },
           {
@@ -39,7 +39,7 @@ var settings = [
         value: "var(--font-family-serif)",
         options: [
           {
-            label: "Sans-serif",
+            label: "Sans",
             value: "var(--font-family-sans)"
           },
           {
